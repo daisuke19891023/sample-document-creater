@@ -30,9 +30,10 @@ jobs:
         run: |
           mkdir output  # create output dir
           echo "::set-output name=files::$(printf '"%s" ' manuscript/*.md)"
-      - uses: docker://pandoc/core:2.14.2
+      - uses: docker://pandoc/latex:2.14.2
         with:
           args: --output=output/result.pdf ${{ steps.files_list.outputs.files }}
+            --pdf-engine=xelatex
       - uses: actions/upload-artifact@master
         with:
           name: output
