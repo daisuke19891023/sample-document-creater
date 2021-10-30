@@ -33,7 +33,9 @@ jobs:
       - uses: docker://pandoc/latex:2.14.2
         with:
           args: --output=output/result.pdf ${{ steps.files_list.outputs.files }}
-            --pdf-engine=xelatex
+            --pdf-engine=lualatex
+            -V documentclass=ltjsarticle
+            -V luatexjapresetoptions=hiragino-pro
       - uses: actions/upload-artifact@master
         with:
           name: output
