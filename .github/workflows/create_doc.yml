@@ -32,6 +32,7 @@ jobs:
           echo "::set-output name=files::$(printf '"%s" ' manuscript/*.md)"
       - uses: docker://frozenbonito/pandoc-eisvogel-ja:2.10
         with:
+          entrypoint: /usr/local/bin/pandoc
           args: --output=output/result.pdf ${{ steps.files_list.outputs.files }}
             --pdf-engine=lualatex
             -V documentclass=ltjsarticle
