@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: create document
 
 # Controls when the workflow will run
 on:
@@ -30,12 +30,21 @@ jobs:
         run: |
           mkdir output  # create output dir
           echo "::set-output name=files::$(printf '"%s" ' manuscript/*.md)"
-      - uses: docker://pandoc/latex:2.14.2
+      - uses: docker://frozenbonito/pandoc-eisvogel-ja:2.10
         with:
+          entrypoint: /usr/local/bin/pandoc
           args: --output=output/result.pdf ${{ steps.files_list.outputs.files }}
             --pdf-engine=lualatex
+            --listings
+            --toc
+            -N
             -V documentclass=ltjsarticle
-            -V luatexjapresetoptions=hiragino-pro
+            -V luatexjapresetoptions=ipaex
+            -V toc-title="目次"
+            -V linkcolor=blue
+            -V toc-own-page=true
+            -V table-use-row-colors=true
+            -V titlepage=true
       - uses: actions/upload-artifact@master
         with:
           name: output
