@@ -1,0 +1,30 @@
+{
+  "name": "aiatwork",
+  "version": "1.0.0",
+  "description": "参考サイト\r https://zenn.dev/serima/articles/4dac7baf0b9377b0b58b",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "textlint": "^12.0.2",
+    "textlint-rule-preset-ja-technical-writing": "^7.0.0",
+    "textlint-rule-preset-ja-spacing": "^2.2.0",
+    "textlint-rule-preset-jtf-style": "^2.3.12"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daisuke19891023/sample-document-creater.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daisuke19891023/sample-document-creater/issues"
+  },
+  "homepage": "https://github.com/daisuke19891023/sample-document-creater#readme"
+}
